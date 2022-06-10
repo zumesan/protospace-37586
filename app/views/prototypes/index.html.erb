@@ -1,0 +1,16 @@
+<main class="main">
+  <div class="inner">
+  <% if user_signed_in? %>
+    <%# ログインしているときは以下を表示する %>
+      <div class="greeting">
+        こんにちは、
+        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link%> <%#ログイン中のユーザーネームを表示%>
+      </div>
+    <%# // ログインしているときは上記を表示する %>
+  <% end %>
+    <div class="card__wrapper">
+      <%= render partial: 'prototype', collection: @prototypes %><%#renderメソッドで部分テンプレート（_prototype.html.erb）を呼び出し、投稿一覧を表示する %>
+                                      <%# ↑ collectionで指定したインスタンスの中の要素の数だけ、部分テンプレートを呼び出し%>
+    </div>
+  </div>
+</main>

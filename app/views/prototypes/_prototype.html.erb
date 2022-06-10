@@ -1,0 +1,10 @@
+<div class="card">
+  <%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype)%><%#prototypeパスの引数にprototypesテーブルを入れる%>
+  <div class="card__body">
+    <%= link_to prototype.title, prototype_path(prototype), class: :card__title%> <%#prototypesテーブルのtitleカラムに保存されている値を表示し、リンクを設定%>
+    <p class="card__summary">
+      <%= prototype.catch_copy %> <%#prototypesテーブルのcatch_copyカラムに保存されている値を表示%>
+    </p>
+    <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: :card__user %> <%#prototypesテーブルのuser_idに紐付いたnameを表示し、そこにリンクを設定%>
+  </div>
+</div>
