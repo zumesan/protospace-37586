@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       redirect_to prototype_path(@comment.prototype) #show.html.erbを表示
     else
       @prototype = @comment.prototype
-      @comments = @prototype.comment
+      @comments = @prototype.comments
       render "prototypes/show" #保存できなかった時、renderメソッドでprototypes/show.html.erb（新規投稿ページ）を表示
     end
   end
