@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params) #保存するデータをインスタンス変数に代入する
     if @comment.save #データが保存されたとき、下記を実行
-      redirect_to prototype_path(id:current_user) #show.html.erbを表示
+      redirect_to prototype_path(@comment.prototype) #show.html.erbを表示
     else
       @prototype = @comment.prototype
       @comments = @prototype.comment
